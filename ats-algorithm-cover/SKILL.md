@@ -1,6 +1,6 @@
 ---
 name: ats-algorithm-cover
-description: 生成自主式交通系统（ATS）算法模型封面卡片。Use when the user asks to create, update, render, batch-generate, or fix ATS algorithm cover/card HTML or transparent high-DPI PNG images, provided directly with required cover data or with documents/directories from which the cover data can be inferred.
+description: 生成自主式交通系统（ATS）算法模型封面卡片。仅当用户要求创建、更新、渲染、批量生成或修复 ATS 算法封面/卡片 HTML，或透明高分辨率 PNG 图片时使用；所需封面数据可由用户直接提供，也可从文档或算法目录中推断。
 ---
 # ATS 算法模型封面生成
 
