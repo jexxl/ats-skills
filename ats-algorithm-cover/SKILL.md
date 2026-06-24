@@ -21,7 +21,7 @@ description: 生成自主式交通系统（ATS）算法模型封面卡片。Use 
 2. 功能描述：一句不超过两行的模型主要功能描述，并指定或允许选择一个加粗关键词
 3. 流程节点：2-6 个流程节点，或一段可转换为 Mermaid `flowchart LR` 的流程描述
 4. 模型服务场景：用于页脚的服务场景文本
-5. 主要编程语言：例如 `Python`、`Python / C++`
+5. 主要编程语言：例如 `Python`、`C++`
 6. 输出位置：目标 `cover.html` 和 `cover.png` 路径，或一个可写的算法目录
 
 可选数据：
@@ -58,7 +58,7 @@ description: 生成自主式交通系统（ATS）算法模型封面卡片。Use 
 2. `.function-text` 内的一句话功能描述和 `<strong>关键词</strong>`
 3. `<pre class="mermaid">...</pre>` 内的 Mermaid 流程
 4. `.service-scene` 内的模型服务场景
-5. `.language` 内的主要编程语言
+5. `.language` 内的主要编程语言 tag；多语言用多个 `<span class="language-tag">...</span>`，例如 `Python` 和 `C++`
 
 不要改动模板的布局 CSS、卡片比例、主题变量、脚本结构，除非用户明确要求。模板内保留在线 Mermaid：
 

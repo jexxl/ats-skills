@@ -164,10 +164,27 @@
   }
 
   .language {
-    max-width: 260px;
+    max-width: 220px;
     color: var(--text-main);
-    font-size: 27px;
-    font-weight: 900;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    overflow: hidden;
+  }
+
+  .language-tag {
+    max-width: 100%;
+    min-height: 28px;
+    padding: 3px 9px 4px;
+    border: 1px solid color-mix(in srgb, var(--theme-color) 34%, #cbd5e1);
+    border-radius: 7px;
+    background: color-mix(in srgb, var(--theme-color) 9%, #ffffff);
+    color: var(--theme-color);
+    font-size: 17px;
+    line-height: 1.05;
+    font-weight: 800;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -214,8 +231,15 @@
     }
 
     .language {
-      max-width: 200px;
-      font-size: 20px;
+      max-width: 160px;
+      gap: 4px;
+    }
+
+    .language-tag {
+      min-height: 23px;
+      padding: 2px 7px 3px;
+      border-radius: 6px;
+      font-size: 13px;
     }
   }
 </style>
@@ -251,8 +275,11 @@
         <strong>模型服务场景：</strong>{模型服务场景}
       </div>
 
-      <!-- EDIT 5: Replace primary language text, such as Python or Python / C++. -->
-      <div class="language">Python / C++</div>
+      <!-- EDIT 5: Replace language tags, such as Python and C++. -->
+      <div class="language">
+        <span class="language-tag">Python</span>
+        <span class="language-tag">C++</span>
+      </div>
     </div>
   </div>
 </section>
@@ -271,6 +298,22 @@
       const badge = card.querySelector(".type-badge");
       if (badge && !badge.textContent.trim()) {
         badge.textContent = type === "dedicated" ? "专用" : "基础";
+      }
+
+      const language = card.querySelector(".language");
+      if (language && !language.querySelector(".language-tag")) {
+        const items = language.textContent
+          .split(/\s*(?:\/|,|，|、|;|；)\s*/)
+          .map((item) => item.trim())
+          .filter(Boolean);
+
+        language.textContent = "";
+        items.forEach((item) => {
+          const tag = document.createElement("span");
+          tag.className = "language-tag";
+          tag.textContent = item;
+          language.appendChild(tag);
+        });
       }
     });
 
