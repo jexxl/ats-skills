@@ -182,9 +182,7 @@ def build_jobs(config: dict) -> list[DocumentJob]:
 
 def preprocess_markdown(source: Path, destination: Path, image_dir: Path, layout: str) -> None:
     text = source.read_text(encoding="utf-8")
-    if layout == "model_description":
-        text = render_model_description_markdown(text)
-    elif layout == "experiment_report":
+    if layout == "experiment_report":
         text = render_experiment_report_markdown(text)
     elif layout != "markdown":
         raise ValueError(f"Unsupported document layout: {layout}")
@@ -219,44 +217,6 @@ def validate_formula_syntax(text: str, source: Path) -> None:
             "Use simple pandoc-compatible math instead:\n"
             + "\n".join(violations)
         )
-
-
-def render_model_description_markdown(text: str) -> str:
-    metadata, body = split_frontmatter(text)
-    title = clean_placeholder(metadata.get("模型编号")) or first_heading(body) or "{算法编号}"
-    intro = (
-        extract_section(body, "算法模型简介").strip()
-        or "{算法模型文字简介。应聚焦算法原理，不写代码、工程文件、运行命令或实现细节；可附带必要公式并解释变量含义。}"
-    )
-    flowchart_title, flowchart_note, flowchart = extract_flowchart_section(body)
-    inputs = extract_data_requirements(body, "输入数据要求")
-    outputs = extract_data_requirements(body, "输出数据要求")
-    validate_data_requirements(inputs, "输入数据要求")
-    validate_data_requirements(outputs, "输出数据要求")
-
-    lines = [
-        f"# {title}",
-        "",
-        "## 算法模型基本信息",
-        "",
-    ]
-    lines.extend(build_basic_info_table(metadata, inputs, outputs))
-    lines.extend(
-        [
-            "",
-            "## 算法模型简介",
-            "",
-            intro,
-            "",
-            f"## {flowchart_title}",
-            "",
-        ]
-    )
-    if flowchart_note:
-        lines.extend([flowchart_note, ""])
-    if flowchart:
-        lines.extend(["```plantuml", flowchart, "```"])
-    return "\n".join(lines).rstrip() + "\n"
 
 
 def render_experiment_report_markdown(text: str) -> str:
@@ -319,7 +279,7 @@ def extract_required_report_sections(text: str) -> list[tuple[str, str]]:
         if title == "测试数据与配置":
             actual_input = extract_markdown_subsection(section_body, "实际输入数据")
             if not re.search(r"^####\s+.+", actual_input, re.MULTILINE):
-                raise ValueError("Experiment report `### 实际输入数据` must contain at least one `#### 数据名称（节选）` item.")
+                raise ValueError("Experiment report `### 实际输入数据` must contain at least one `#### 输入数据名称` item.")
         if title == "测试结果":
             if not re.search(r"^###\s+.+", section_body, re.MULTILINE):
                 raise ValueError("Experiment report `## 测试结果` must contain at least one `### 输出数据名称` item.")
@@ -659,7 +619,7 @@ def normalize_docx(path: Path, layout: str) -> None:
     normalize_markdown_heading_styles(doc)
     normalize_paragraphs(doc)
     normalize_tables(doc)
-    if layout in {"model_description", "experiment_report"}:
+    if layout == "experiment_report":
         normalize_model_description(doc)
     doc.save(path)
 
