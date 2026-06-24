@@ -1,6 +1,6 @@
-# ats-algorithm-packaging-skill
+# ats-algorithm-packaging
 
-将 Python 算法模型打包为标准化 Docker 格式，用于云计算平台部署或数据汇交。
+将 Python 算法模型打包为标准化 Docker 格式，用于云计算平台部署。
 
 ## 使用方式
 

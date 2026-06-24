@@ -1,6 +1,6 @@
 ---
 name: ats-algorithm-packaging
-description: 当用户要求将Python算法模型打包为docker形式，用于云计算平台时使用此skill。
+description: 将 Python 算法模型打包为标准化 Docker 格式，用于云计算平台部署。
 ---
 
 # 云计算平台算法模型打包

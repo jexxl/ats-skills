@@ -1,30 +1,18 @@
 # ATS Skills
 
-This repository packages reusable Codex skills for Autonomous Transportation Systems (ATS) work.
+本仓库包含了自主式交通系统计算技术课题四算法模型相关的 Skills。
 
-## Included Skills
+## 包含的 Skills
 
-- `ats-algorithm-packaging`: package Python algorithm models as Docker deliverables for cloud platforms or data submission.
-- `ats-algorithm-cover`: generate ATS algorithm cover/card HTML and transparent high-DPI PNG images.
+- `ats-algorithm-packaging`：将算法模型打包为 Docker 交付物，用于云计算平台。（**仅专题4内部使用，其他专题可参考**）
+- `ats-algorithm-cover`：生成自主式交通系统（ATS）算法模型封面卡片，用于云计算平台展示。
 
-## Use
+## 使用方式
 
-Clone the repository:
+克隆仓库：
 
 ```bash
 git clone https://github.com/jexxl/ats-skills.git
 ```
 
-Then copy or link the skill directories into your Codex skills directory so they remain direct child directories:
-
-```text
-skills/
-├── ats-algorithm-packaging/
-└── ats-algorithm-cover/
-```
-
-If your skills directory is also a Git repository, you can keep this repository as a submodule and expose each skill with links or junctions from the skills root.
-
-## Update Workflow
-
-Commit changes in this repository first, then update any parent repository that tracks it as a submodule.
+然后将 skill 目录复制或链接到对应 AI Agent 的 `skills` 目录中。
