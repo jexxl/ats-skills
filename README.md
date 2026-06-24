@@ -4,7 +4,7 @@ This repository packages reusable Codex skills for Autonomous Transportation Sys
 
 ## Included Skills
 
-- `algorithm-packaging`: package Python algorithm models as Docker deliverables for cloud platforms or data submission.
+- `ats-algorithm-packaging`: package Python algorithm models as Docker deliverables for cloud platforms or data submission.
 - `ats-algorithm-cover`: generate ATS algorithm cover/card HTML and transparent high-DPI PNG images.
 
 ## Use
@@ -19,7 +19,7 @@ Then copy or link the skill directories into your Codex skills directory so they
 
 ```text
 skills/
-├── algorithm-packaging/
+├── ats-algorithm-packaging/
 └── ats-algorithm-cover/
 ```
 

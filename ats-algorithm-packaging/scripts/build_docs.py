@@ -614,7 +614,7 @@ def write_kroki_plantuml_svg(code: str, output: Path) -> None:
         data=code.encode("utf-8"),
         headers={
             "Content-Type": "text/plain; charset=utf-8",
-            "User-Agent": "algorithm-packaging-docs/1.0",
+            "User-Agent": "ats-algorithm-packaging-docs/1.0",
         },
         method="POST",
     )

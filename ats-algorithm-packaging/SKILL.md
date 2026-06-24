@@ -1,5 +1,5 @@
 ---
-name: algorithm-packaging
+name: ats-algorithm-packaging
 description: 当用户要求将Python算法模型打包为docker形式，用于云计算平台或数据汇交时使用此skill。
 ---
 

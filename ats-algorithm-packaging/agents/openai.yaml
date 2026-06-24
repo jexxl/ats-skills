@@ -1,0 +1,4 @@
+interface:
+  display_name: "ATS 算法打包"
+  short_description: "将Python算法模型打包为云计算平台可用的Docker交付物"
+  default_prompt: "Use $ats-algorithm-packaging to package the provided Python algorithm model as a Docker deliverable for cloud platform submission, including standardized directory structure, config-file based parameters, docs, validation, and image export."
