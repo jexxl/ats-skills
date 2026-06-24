@@ -1,4 +1,0 @@
-interface:
-  display_name: "ATS 算法封面"
-  short_description: "根据用户数据生成ATS算法模型封面卡片和Mermaid流程图"
-  default_prompt: "Use $ats-algorithm-cover to generate a transparent high-DPI ATS algorithm cover PNG from the provided model type, function, flow, service scene, language, and output path."
