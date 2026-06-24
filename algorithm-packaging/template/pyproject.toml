@@ -1,0 +1,15 @@
+[project]
+name = "algo-id-placeholder"
+version = "0.1.0"
+description = "请填写算法描述"
+requires-python = ">=3.11"
+dependencies = [
+    # 在此列出算法所需的第三方依赖，例如：
+    # "numpy>=1.26.0",
+    # "pandas>=2.0.0",
+]
+
+# 阿里云 PyPI 镜像，保证中国网络环境下依赖可正常安装
+[[tool.uv.index]]
+url = "https://mirrors.aliyun.com/pypi/simple"
+default = true
