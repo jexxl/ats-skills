@@ -1,6 +1,6 @@
 ---
 name: ats-algorithm-packaging
-description: 将 Python 算法模型打包为标准化 Docker 格式，用于云计算平台部署。
+description: 将 Python 算法模型打包为标准化 Docker 格式，用于云计算平台部署，并生成ATS 算法模型“原始实验运行数据及测试报告”Markdown 和 Word 文档。
 ---
 
 # 云计算平台算法模型打包
